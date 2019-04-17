@@ -7,7 +7,7 @@ ldap_client -- LDAP client with very basic LDAP operations.
 """
 
 import logging
-import ldap as ld
+import ldap 
 import ldap.modlist as modlist
 import basedn
 import sys
