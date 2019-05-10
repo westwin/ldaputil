@@ -64,7 +64,7 @@ def main(argv=None):
     username_choices = [line.rstrip('\n').strip().lower() for line in open('sample/usernames.txt', 'r')]
 
     # sample people/token data.
-    all_tenants = ("example",)
+    all_tenants = ("nationsky",)
     import subject
 
     s_crud = subject.CRUD(client)  # subject crud client
