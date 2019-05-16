@@ -40,6 +40,9 @@ class People(Subject):
         self.tel = tel
         self.pwd = pwd
 
+    def dn(self, tenant):
+        return basedn.people_dn(self.username,tenant_name=tenant)
+
     def __str__(self):
         return "%s,%s,%s" % (self.username, self.first_name, self.last_name)
 
@@ -109,7 +112,7 @@ class CRUD(object):
     def exists(self, tenant_name, username):
         """check if a user name exists"""
         base = basedn.people_base(tenant_name)
-        r = self._client.search(base, filterstr='(&(objectClass=ns-base-subject)(uid=%s))' % basedn.escape(username),
+        r = self._client.search(base, filterstr='(&(objectClass=inetorgperson)(uid=%s))' % basedn.escape(username),
                                 attrlist=["1.1"])
 
         return len(r) > 0
@@ -148,6 +151,7 @@ class CRUD(object):
 
             return ''.join(random.choice(string.digits) for _ in range(length))
 
+        dn_list = []
         for idx in range(0, count):
             # do not randomize username, simply append an index to a fixed prefix.
             if prefix:
@@ -170,7 +174,10 @@ class CRUD(object):
                             mobile=mobile, tel=tel, pwd=pwd)
             self.create(tenant_name, people)
 
-        return
+            dn = people.dn(tenant_name)
+            dn_list.append(dn)
+
+        return dn_list
 
 
 if __name__ == "__main__":

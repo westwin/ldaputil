@@ -26,7 +26,7 @@ def main(argv=None):
         sys.argv.extend(argv)
 
     # add command line options/parser
-    parser = ArgumentParser(description="Sample LDAP Data, including Org, People,Token etc.",
+    parser = ArgumentParser(description="Sample LDAP Data, including Org, People etc.",
                             formatter_class=ArgumentDefaultsHelpFormatter)
 
     parser.add_argument("--host", help="@deperated, please use --uri.", default="localhost")
@@ -39,6 +39,8 @@ def main(argv=None):
     parser.add_argument("--prefix", help="username prefix sequentially.")
 
     parser.add_argument("--chinese", help="Sampler Chinese names #.", action="store_true", default=False)
+
+    parser.add_argument("--org", help="Sample organization ?", action="store_true", default=False)
 
     # parse arguments
     args = parser.parse_args()
@@ -62,18 +64,26 @@ def main(argv=None):
     firstname_choices = [line.rstrip('\n').strip().title() for line in open(firstname_dict_file, 'r')]
     lastname_choices = [line.rstrip('\n').strip().title() for line in open(lastname_dict_file, 'r')]
     username_choices = [line.rstrip('\n').strip().lower() for line in open('sample/usernames.txt', 'r')]
+    org_choices = [line.rstrip('\n').strip() for line in open('sample/organization.txt', 'r')]
 
-    # sample people/token data.
-    all_tenants = ("nationsky",)
+    # sample people/org data.
+    all_tenants = ("example",)
     import subject
+    import organization
 
     s_crud = subject.CRUD(client)  # subject crud client
+    org_crud = organization.CRUD(client)  # organization crud client
 
     for t in all_tenants:
         # then create sample subject.
-        s_crud.sample(t, firstname_choices=firstname_choices, lastname_choices=lastname_choices,
+        user_dns = s_crud.sample(t, firstname_choices=firstname_choices, lastname_choices=lastname_choices,
                                  username_choices=username_choices, count=args.subject,
                                  prefix=args.prefix)
+
+        # create organizations                    
+        if args.org:
+            org_crud.sample(t, org_choices, user_dns)
+        
     client.close()
 
 

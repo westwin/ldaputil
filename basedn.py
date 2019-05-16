@@ -18,7 +18,7 @@ def tenant_base(tenant_name=RESERVED_TENANT):
     return "dc=%s,dc=com" % (escape(tenant_name))
 
 def people_base(tenant_name):
-    return "ou=People," + tenant_base(tenant_name)
+    return "ou=people," + tenant_base(tenant_name)
 
 def subject_base(tenant_name):
     return people_base(tenant_name)
@@ -28,7 +28,7 @@ def people_dn(username, tenant_name=RESERVED_TENANT):
 
 
 def org_base(tenant_name):
-    return "ou=Organizations," + tenant_base(tenant_name)
+    return "ou=organization," + tenant_base(tenant_name)
 
 
 def org_dn(org_name, rdn):

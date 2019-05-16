@@ -1,74 +1,25 @@
-1:n:HR Department
-1:n:Retail Department
-1:n:Legal Department
-1:n:Finance Department
-1:n:R&D
-1:n:Reseller Department
-1:n:Sales
-1:n:Business Unit 1
-1:n:Business Unit 2
-1:n:BeiJing Office
-1:n:TianJin Office
-1:n:Texas Region
-1:n:海淀分部
-1:n:朝阳分部
-2:n:Recruit Team
-2:n:五险一金部门
-2:n:其他人事管理
-2:n:食品零售
-2:n:冷藏零售
-2:n:日用品零售店
-2:n:clothes retail
-2:n:blabla retail bla
-2:n:EMM R&D
-2:n:EDP R&D
-2:n:AppNest R&D
-2:n:EDP BJ
-2:n:EDP TJ
-2:n:Bemail BJ
-2:n:Bemail TJ
-2:n:Betalk TJ
-2:n:Betalk BJ
-3:n:EMM Standard R&D
-3:n:EMM Customized R&D
-3:n:EDP Customized R&D
-3:n:EDP Customized R&D
-3:n:Bemail Customized R&D
-3:n:Bemail Customized R&D
-1:d:HR Department
-1:d:Retail Department
-1:d:Legal Department
-1:d:Finance Department
-1:d:R&D
-1:d:Reseller Department
-1:d:Sales
-1:d:Business Unit 1
-1:d:Business Unit 2
-1:d:BeiJing Office
-1:d:TianJin Office
-1:d:Texas Region
-1:d:海淀分部
-1:d:朝阳分部
-2:d:Recruit Team
-2:d:五险一金部门
-2:d:其他人事管理
-2:d:食品零售
-2:d:冷藏零售
-2:d:日用品零售店
-2:d:clothes retail
-2:d:blabla retail bla
-2:d:EMM R&D
-2:d:EDP R&D
-2:d:AppNest R&D
-2:d:EDP BJ
-2:d:EDP TJ
-2:d:Bemail BJ
-2:d:Bemail TJ
-2:d:Betalk TJ
-2:d:Betalk BJ
-3:d:EMM Standard R&D Description
-3:d:EMM Customized R&D
-3:d:EDP Customized R&D
-3:d:EDP Customized R&D
-3:d:Bemail Customized R&D
-3:d:Bemail Customized R&D
+cn=BeiJing
+cn=HR,cn=BeiJing
+cn=Marketing,cn=BeiJing
+cn=Finance,cn=BeiJing
+cn=R&D,cn=BeiJing
+cn=Dev,cn=R&D,cn=BeiJing
+cn=Platform,cn=Dev,cn=R&D,cn=BeiJing
+cn=UD,cn=Dev,cn=R&D,cn=BeiJing
+cn=LCM,cn=Dev,cn=R&D,cn=BeiJing
+cn=Integration,cn=Dev,cn=R&D,cn=BeiJing
+cn=QA,cn=R&D,cn=BeiJing
+cn=Automation,cn=QA,cn=R&D,cn=BeiJing
+
+cn=ShangHai
+cn=HR,cn=ShangHai
+cn=Marketing,cn=ShangHai
+cn=Finance,cn=ShangHai
+cn=R&D,cn=ShangHai
+cn=Dev,cn=R&D,cn=ShangHai
+cn=SSO,cn=Dev,cn=R&D,cn=ShangHai
+cn=QA,cn=R&D,cn=ShangHai
+cn=Automation,cn=QA,cn=R&D,cn=ShangHai
+
+cn=深圳
+cn=售前,cn=深圳
