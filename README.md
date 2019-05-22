@@ -2,7 +2,8 @@
 
 ## Depedencies
 
-1. python-ldap: sudo yum install -y python-ldap
+1. **python 2.7**
+2. python-ldap: sudo yum install -y python-ldap
 
 ## Features
 
