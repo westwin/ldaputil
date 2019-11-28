@@ -30,16 +30,24 @@ def main(argv=None):
     parser.add_argument("--uri", help="LDAP URI. For example: ldaps://localhost:1636", default="ldap://localhost:1389")
     parser.add_argument("-D", "--bindDN", help="DN to use to bind to the server.")
     parser.add_argument("-w", "--bindPassword", help="Password to use to bind to the server.")
+    parser.add_argument("-c", "--count", type=int, default=1, help="for perf test only, how many logins, 0 for infinite, default 1.")
 
     # parse arguments
     args = parser.parse_args()
 
     ldap_server = ldap_client.Server(None, None, args.uri)
     ldap_account = ldap_client.Account(args.bindDN, args.bindPassword)
+    count = args.count
 
     # ldap client instance
     client = ldap_client.Client(ldap_server)
-    client.connect_bind(ldap_account)
+
+    if count == 0:
+        while True:
+            client.connect_bind(ldap_account)
+    else:
+        for i in xrange(0,count):
+            client.connect_bind(ldap_account)
 
     client.close()
 
