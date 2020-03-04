@@ -22,3 +22,5 @@ features:
    1. ./samper.py --subject 100 --prefix test --org // create 100 users and some orgs, then randomize the membership
 4. login test:
    1. ./login.py --uri ldap://localhost:1389 -D 'uid=test.0@mailinator.com,ou=people,dc=example,dc=com' -w '1'
+5. bulk login test with -c:
+   1. ./login.py --uri ldap://localhost:1389 -D 'uid=test.0@mailinator.com,ou=people,dc=example,dc=com' -w '1' -c 10
